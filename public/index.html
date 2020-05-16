@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../src/css/styles.css">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <main class="space-war bordered-element">
+        <div class="connection-info bordered-element">
+            <div class="connection-id">
+                connection info: <span id="connection-info"></span>
+                <form id="connection-form" class="connection-form">
+                    <input type="text" name="connectionId" />
+                    <input type="button" value="Connect" id="connect-btn" />
+                </form>
+            </div>
+            <div class="connect-to">
+                <form id="message-form" class="message-form">
+                    <input type="text" name="message" />
+                    <input type="button" value="Send message" id="send-message-btn" />
+                </form>
+            </div>
+        </div>
+        <div class="game-board bordered-element">
+            <div class="board board-player1 bordered-element">                
+            </div>
+            <div class="board board-player2 bordered-element">
+            </div>
+        </div>
+        <div class="game-controls bordered-element">
+            Game controls
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js"></script>
+    <script src="../src/main.js"></script>
+</body>
+</html>

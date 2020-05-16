@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 100%;
+}
+
+.space-war {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.connection-info {
+    flex: 0 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.connection-form{
+    margin-top: .5rem;
+}
+
+.game-board {
+    flex: 0 0 70%;    
+    display: flex;
+}
+
+/*Common or shared for board/player1 and board/player2*/
+.board {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.board-player1 {
+    flex: 0 0 50%;    
+}
+
+.board-player2 {
+    flex: 0 0 50%;    
+}
+
+.game-controls {
+    flex: 0 0 20%;
+}
+
+.bordered-element {
+    border: 1px solid red;
+}
+
+.board-grid-element {
+    flex: 0 0 20%;
+}
