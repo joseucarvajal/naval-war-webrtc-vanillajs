@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .connection-info {
@@ -23,13 +23,14 @@ body {
     padding: 1rem;
 }
 
-.connection-form{
-    margin-top: .5rem;
+.connection-form {
+    margin-top: 0.5rem;
 }
 
 .game-board {
-    flex: 0 0 70%;    
+    flex: 0 0 70%;
     display: flex;
+    justify-content: space-between;
 }
 
 /*Common or shared for board/player1 and board/player2*/
@@ -39,21 +40,63 @@ body {
 }
 
 .board-player1 {
-    flex: 0 0 50%;    
+    flex: 0 0 49%;
 }
 
 .board-player2 {
-    flex: 0 0 50%;    
+    flex: 0 0 49%;
 }
 
 .game-controls {
     flex: 0 0 20%;
+    padding: 0 2rem;
 }
 
 .bordered-element {
     border: 1px solid red;
 }
 
+/*=============================== GRID ============================ */
 .board-grid-element {
+    flex: 0 0 10%;
+}
+
+.board-grid-element--barco {
+    background-color: aqua;
+    border-color: aqua;
+}
+
+/*=============================== CHIP SELECTOR ============================ */
+.game-controls-chip {
+    margin-top: 2rem;
+    display: flex;
+}
+
+.game-controls-chip__lbl {
+    margin-right: 2rem;
+}
+
+.game-controls-chip__chips {
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+}
+
+.game-controls-chip__opt {
+    border: 1px solid blueviolet;
     flex: 0 0 20%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.game-controls-chip__opt--activo {
+    border: 3px solid blueviolet;
+    font-weight: bolder;
+}
+
+.game-controls-chip__opt--inactivo {
+    cursor: default;
+    background-color: #CCC;
+    border: 1px solid blueviolet;
+    font-weight: unset;
 }
