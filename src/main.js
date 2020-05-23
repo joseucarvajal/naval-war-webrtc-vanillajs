@@ -1,4 +1,5 @@
-import {  } from "./connection";
-import {} from './game-board'
+import "./connection";
+import './game-board';
+import './fire-controller';
 
 console.log('main.js loaded');

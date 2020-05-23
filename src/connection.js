@@ -1,3 +1,6 @@
+import { showFeedbackMessage  } from "./messages-controller";
+
+export let playerId = 0; //1 or 2
 
 let connection;
 
@@ -13,7 +16,7 @@ connectBtn.addEventListener('click', () => {
 const messageForm = document.querySelector('#message-form');
 const messageBtn = document.querySelector('#send-message-btn');
 messageBtn.addEventListener('click', () => {
-    sendMessage();
+    sendMessageFromForm();
 });
 
 
@@ -25,14 +28,18 @@ const loadConnectionId = () => {
     });
 
     peer.on('connection', (conn) => {
+        playerId = 1;
         connection = conn;
+        showFeedbackMessage('Another player has stablished a connection');
         conn.on('data', (data) => {
-            console.log('message from player 2: ', data);
+            showFeedbackMessage(data);
+            onFireReceived(data);
         });
     });
 }
 
 
+//Player 2
 const connect = () => {
 
     const connectionId = connectionForm.connectionId.value;
@@ -41,16 +48,38 @@ const connect = () => {
     const conn = peer.connect(connectionId);
     conn.on('open', () => {
         connection = conn;
-        conn.send('hola');
+        playerId = 2;
         conn.on('data', (data) => {
-            console.log('message from player 1: ', data);
+            showFeedbackMessage(data);
+            onFireReceived(data);
         });
     });
 }
 
-const sendMessage = () => {
+const sendMessageFromForm = () => {
     const message = messageForm.message.value;
     connection.send(message);
 }
 
+export const sendMessage = (message) => {
+    connection.send(message);
+}
+
+const onFireReceived = (shootCoords) => {
+    if(shootCoords.indexOf(',') !== -1){
+        const coords = shootCoords.split(',');
+        const coordsSelector = `[y="${coords[1]}"][x="${coords[0]}"]`;
+        const gridElement = document.querySelector(coordsSelector);
+
+        if(gridElement.classList.contains('board-grid-element--barco')){
+            gridElement.style.backgroundColor = 'red';
+        }
+        else {
+            gridElement.style.backgroundColor = 'yellow';
+        }
+    }
+}
+
 loadConnectionId();
+
+

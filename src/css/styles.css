@@ -53,7 +53,31 @@ body {
 }
 
 .bordered-element {
+    border: 1px solid rgb(160, 185, 163);
+}
+
+.bordered-element-1{    
+    border: 1px solid rgb(160, 185, 163);
+    cursor: cell;
+    background-attachment: transparent;
+}
+.bordered-element-1:hover{    
+    cursor: cell;
+    background-color: turquoise;
+}
+
+.bordered-element-danger {
     border: 1px solid red;
+    cursor: cell;
+    background-color: white;
+}
+.bordered-element-danger:hover{
+    background-color: darksalmon;
+}
+
+.error_message {
+    color: red;
+    font-weight: bolder;
 }
 
 /*=============================== GRID ============================ */
@@ -99,4 +123,12 @@ body {
     background-color: #CCC;
     border: 1px solid blueviolet;
     font-weight: unset;
+}
+
+.btn-fire {
+    padding: 5px 15px;
+}
+
+.feedback-message{
+    color: blue;
 }
